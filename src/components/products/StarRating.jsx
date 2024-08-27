@@ -14,7 +14,7 @@ const StarRating = () => {
             <input
               type='radio'
               name='rate'
-              className='hidden' // مخفی کردن ورودی رادیویی
+              className='hidden' 
               onClick={() => setRate(currentRate)}
             />
             <FaStar
@@ -22,7 +22,7 @@ const StarRating = () => {
                 currentRate <= (hoverRate || rate)
                   ? "text-yellow-500"
                   : "text-gray-500"
-              } cursor-pointer`}  // اضافه کردن کلاس cursor-pointer
+              } cursor-pointer`}  
               onMouseEnter={() => setHoverRate(currentRate)}
               onMouseLeave={() => setHoverRate(null)}
               onClick={() => setRate(currentRate)}

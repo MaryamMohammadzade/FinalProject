@@ -3,7 +3,7 @@ import { FiHeart } from "react-icons/fi";
 import useFavoriteStore from '../../store/useFavoriteStore';
 
 const Favorite = ({ id }) => {
-  const { favorites, addFavorite, removeFavorite, isFavorite } = useFavoriteStore();
+  const { addFavorite, removeFavorite, isFavorite } = useFavoriteStore();
 
   const inFavorites = isFavorite(id);
   

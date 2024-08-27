@@ -20,7 +20,7 @@ const useFavoriteStore = create(
           favoriteCount: updatedFavorites.length
         };
       }),
-      isFavorite: (id) => get().favorites.includes(id) // بررسی وجود محصول در لیست علاقه‌مندی‌ها
+      isFavorite: (id) => get().favorites.includes(id) 
     }),
     {
       name: 'favorite-store',

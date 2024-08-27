@@ -2,6 +2,7 @@ const products =[
     {
         id: 1,
         name:"rounded neck shirt",
+        size:['S', 'M', 'L', 'XL' ,'XXL' ],
         price: 100, 
         description:"women summer new collection",
         rate: [],
@@ -10,6 +11,7 @@ const products =[
     {
         id: 2,
         name:"rounded neck shirt",
+        size:['S', 'M', 'L', 'XL' ,'XXL' ],
         price: 105, 
         description:"women summer new collection",
         rate: [],
@@ -19,6 +21,7 @@ const products =[
     {
         id: 3,
         name:"rounded neck shirt",
+        size:['S', 'M', 'L', 'XL' ,'XXL' ],
         price: 110, 
         description:"women summer new collection",
         rate: [],
@@ -28,6 +31,7 @@ const products =[
     {
         id: 4,
         name:"rounded neck shirt",
+        size:['S', 'M', 'L', 'XL' ,'XXL' ],
         price: 120, 
         description:"women summer new collection",
         rate: [],
@@ -37,6 +41,7 @@ const products =[
     {
         id: 5,
         name:"rounded neck shirt",
+        size:['S', 'M', 'L', 'XL' ,'XXL' ],
         price: 125, 
         description:"women summer new collection",
         rate: [],
@@ -46,6 +51,7 @@ const products =[
     {
         id: 6,
         name:"rounded neck shirt",
+        size:['S', 'M', 'L', 'XL' ,'XXL' ],
         price: 125, 
         description:"women summer new collection",
         rate: [],
@@ -56,6 +62,7 @@ const products =[
     {
         id: 7,
         name:"rounded neck shirt",
+        size:['S', 'M', 'L', 'XL' ,'XXL' ],
         price: 125, 
         description:"women summer new collection",
         rate: [],
