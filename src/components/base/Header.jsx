@@ -1,7 +1,9 @@
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 import { useBasket } from '../../store/basket';
 import { VscAccount } from "react-icons/vsc";
 import { FiShoppingCart } from "react-icons/fi";
+import CartModal from '../modals/cart/CartModal';
 
 const Header = () => {
   const { items } = useBasket((state) => state)
@@ -9,6 +11,7 @@ const Header = () => {
   for (let i = 0; i < items.length; i++) {
     totalBasket = totalBasket + items[i].quantity
   }
+  var [isOpen, setIsOpen]=useState(false);
   var url = require('../../assets/img/1.png');
 
   return (
@@ -18,14 +21,19 @@ const Header = () => {
         <div className='h-10 flex items-center gap-4 px-4'>
           <NavLink to="/home">Home</NavLink>
           <NavLink to="/home/products">Products</NavLink>
-{/*           <NavLink to="/">Categories</NavLink>
-          <NavLink to="/">Delivery</NavLink>
-          <NavLink to="/">About us</NavLink> */}
+          <NavLink className="flex items-center gap-1" to="/home/basket">Basket</NavLink>
         </div>
       </div>
       <div className='flex items-center gap-4'>
         <NavLink className="flex items-center gap-1" to="/"><VscAccount />Account</NavLink>
-        <NavLink className="flex items-center gap-1" to="/home/basket"><FiShoppingCart />Basket: {totalBasket}</NavLink>
+        <div className=' cursor-pointer flex items-center gap-1' onClick={()=>setIsOpen(true)}>
+           <FiShoppingCart />
+           Basket
+        </div>
+           {
+             isOpen && <CartModal onClose={()=>setIsOpen(false)} />
+           }
+      
       </div>
     </header>
   )

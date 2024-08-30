@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { RiCloseFill } from 'react-icons/ri';
-import { FiShoppingCart } from 'react-icons/fi';  // اضافه کردن آیکون سبد خرید
-import ProductDetails from './ProductDetails';
+import { FiShoppingCart } from 'react-icons/fi';  
+import ProductDetails from '../ProductDetails';
 import Counter from './Counter';
 import { useBasket } from '../../../store/basket';
 import SizeBtn from './SizeBtn';
@@ -10,8 +10,8 @@ import DeliveryInfo from './DeliveryInfo';
 import { BsTruck } from "react-icons/bs";
 import { GoShieldSlash } from "react-icons/go";
 
-const Order = ({ data, onClose }) => {
- const {price} = data;
+const OrderModal = ({ data, onClose }) => {
+ const {price, id} = data;
   const [count, setCount] = useState(1);
   const orderRef = useRef();
   const closeOrder = (e) => {
@@ -19,8 +19,13 @@ const Order = ({ data, onClose }) => {
       onClose();
     }
   };
-  const { actions } = useBasket((state) => state);
-
+  const {items, actions } = useBasket((state) => state);
+/*   const isInBasket = items.some((item) => item.id === id);
+  if(isInBasket) 
+    {
+      const { quantity } = data;
+      setCount(quantity);
+    }  */
   return ReactDOM.createPortal(
     <div
       ref={orderRef}
@@ -42,7 +47,7 @@ const Order = ({ data, onClose }) => {
             <Counter
               count={count}
               add={() => setCount(count + 1)}
-              remove={() => setCount(count - 1)}
+              remove={() => {count>0 && setCount(count - 1) && actions.removeItem(data) }}
             />
             <div className="flex gap-2">
               <SizeBtn title="s" />
@@ -62,13 +67,13 @@ const Order = ({ data, onClose }) => {
               <div className="flex gap-3">
                 <button
                   className="rounded-full border-2 px-3 py-1 border-orange-400 text-orange-500 transition-transform duration-200 ease-in-out transform hover:scale-105"
-                  onClick={() => actions.addItem(data)}
+                  onClick={() => actions.addItem(data, count)}
                 >
                   Add to cart
                 </button>
                 <button
                   className="rounded-full border-2 px-3 py-1 text-gray-500 transition-transform duration-200 ease-in-out transform hover:scale-105"
-                  onClick={() => actions.removeItem(data)}
+                  onClick={onClose}
                 >
                   Cancel
                 </button>
@@ -86,4 +91,4 @@ const Order = ({ data, onClose }) => {
   );
 };
 
-export default Order;
+export default OrderModal;

@@ -6,7 +6,7 @@ const DeliveryInfo = ({icon, title, info}) => {
            {icon}
         </div>
         <div className='text-gray-700 '>
-            <h2>{title}</h2>
+            <h2 className=' font-medium'>{title}</h2>
             <p>{info}</p>
         </div>
     </div>

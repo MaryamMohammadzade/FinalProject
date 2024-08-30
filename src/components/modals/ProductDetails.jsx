@@ -1,5 +1,5 @@
 import React from 'react';
-import StarRating from '../../products/StarRating';
+import StarRating from '../products/StarRating';
 
 const ProductDetails = ({ data }) => {
   const { id, name, price, url, description, category } = data;

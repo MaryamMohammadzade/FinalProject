@@ -4,7 +4,7 @@ import Home from '../../pages/Home';
 import ProductsList from '../../pages/ProductsList'
 import NotFound from './NotFound';
 import Basket from '../basket/Basket';
-import Order from '../modals/order/Order';
+import OrderModal from '../modals/order/OrderModal';
 
 const InnerRoutes = () => {
     const routeList = useRoutes([
@@ -14,7 +14,7 @@ const InnerRoutes = () => {
         },
         {
             path: "/home/order",
-            element: <Order />
+            element: <OrderModal />
         },
         {
             path: "/home",
