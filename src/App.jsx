@@ -7,7 +7,7 @@ import HeaderBaner from './components/base/HeaderBaner';
 
 function App() {
   return (
-    <div className=' w-full h-screen bg-gray-50 relative'>
+    <div className=' w-full h-screen bg-gray-50 '>
         <BrowserRouter >
           <HeaderBaner />
           <div className=' md:mx-28'>
