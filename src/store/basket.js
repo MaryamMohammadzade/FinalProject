@@ -33,31 +33,28 @@ export const useBasket = create(
           }
         },
         removeItem(item) {
-          const shouldRemove = item.quantity === 1;
-          
-          if (shouldRemove) {
-            return set((oldBasket) => ({
-              invoice: {
-                total: Math.max(0, oldBasket.invoice.total - item.price), 
-              },
-              items: oldBasket.items.filter((_item) => _item.id !== item.id),
-            }));
-          } else {
-            return set((oldBasket) => ({
-              invoice: {
-                total: Math.max(0, oldBasket.invoice.total - item.price), 
-              },
-              items: oldBasket.items.map((_item) => {
-                if (_item.id === item.id && _item.quantity > 0) {
+          return set((oldBasket) => {
+            const updatedItems = oldBasket.items
+              .map((_item) => {
+                if (_item.id === item.id) {
                   return {
                     ..._item,
                     quantity: _item.quantity - 1,
                   };
                 }
                 return _item;
-              }),
-            }));
-          }
+              })
+              .filter((_item) => _item.quantity > 0); 
+
+            const total = updatedItems.reduce((acc, _item) => acc + (_item.quantity * _item.price), 0);
+
+            return {
+              invoice: {
+                total: total,
+              },
+              items: updatedItems,
+            };
+          });
         },
       },
     }),

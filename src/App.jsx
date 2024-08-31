@@ -7,7 +7,7 @@ import HeaderBaner from './components/base/HeaderBaner';
 
 function App() {
   return (
-    <div className=' w-full h-screen bg-gray-50'>
+    <div className=' w-full h-screen bg-gray-50 relative'>
         <BrowserRouter >
           <HeaderBaner />
           <div className=' md:mx-28'>
@@ -16,7 +16,7 @@ function App() {
             </header>
             <InnerRoutes />
           </div>
-          <footer>
+          <footer className=''>
             <Footer />
           </footer>
         </BrowserRouter>
